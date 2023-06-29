@@ -1,21 +1,23 @@
-function receivesAFunction(callback) {
-  callback();
-}
+const returnFirstTwoDrivers = function(drivers) {
+  return drivers.slice(0, 2);
+};
 
-function returnsANamedFunction() {
-  return function namedFunction() {
-    
+const returnLastTwoDrivers = function(drivers) {
+  return drivers.slice(-2);
+};
+
+const selectingDrivers = [returnFirstTwoDrivers, returnLastTwoDrivers];
+
+function createFareMultiplier(integer) {
+  return function(fare) {
+    return fare * integer;
   };
 }
 
-function returnsAnAnonymousFunction() {
-  return function() {
-    // do something
-  };
+const fareDoubler = createFareMultiplier(2);
+
+const fareTripler = createFareMultiplier(3);
+function selectDifferentDrivers(drivers, returnFunction) {
+  return returnFunction(drivers);
 }
 
-function returnsAnAnonymousFunction() {
-  return function() {
-    // do something
-  };
-}
